@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&family=Source+Code+Pro&display=swap"
+      rel="stylesheet"
+    />
+    <title>AD.Fi Send reject email</title>
+    <style>
+      /* 공용 */
+      html {
+        font-size: 16px;
+      }
+      body {
+        max-width: max-content;
+        margin: 0 auto;
+        padding: 0;
+        vertical-align: baseline;
+      }
+      p {
+        margin: 0;
+      }
+      a {
+        text-decoration: none;
+      }
+      ._text-282828 {
+        color: #282828;
+      }
+      ._text-33858f {
+        color: #33858f;
+      }
+      ._text-50bfce {
+        color: #50bfce;
+      }
+      ._text-7d7d7d {
+        color: #7d7d7d;
+      }
+      ._text-808080 {
+        color: #808080;
+      }
+      ._text-c0c0c0 {
+        color: #c0c0c0;
+      }
+      ._text-e37944 {
+        color: #e37944;
+      }
+
+      .__wrapper {
+        padding: 70px 0;
+        width: 24.438rem;
+        margin: 0 auto;
+      }
+      /* Layout : Header */
+      .__header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 2rem;
+      }
+      .__header > .__img > .__mainImg {
+        width: 4.41rem;
+        height: 2.5rem;
+        margin: 0.438rem 0.465rem 0 0;
+      }
+      .__header > .__text {
+        width: 11.938rem;
+        height: 2.938rem;
+        margin: 0 0 0 0.465rem;
+        font-size: 2rem;
+        line-height: 1.47;
+        text-align: left;
+        color: #808080;
+      }
+
+      /* Layout : Section */
+      .__section {
+      }
+      .__section > .__header {
+        display: inline-block;
+        width: 15.938rem;
+        height: 3rem;
+        font-family: NotoSansCJKkr;
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: 1.5;
+        text-align: left;
+        margin-bottom: 2rem;
+      }
+
+      /* Sub Content  */
+      .__section > .__body > .__sub-content {
+        margin-bottom: 2rem;
+      }
+      .__section > .__body > .__sub-content > .__main-title {
+        width: 3.188rem;
+        height: 1.063rem;
+        font-family: NotoSansCJKkr;
+        font-size: 0.688rem;
+        font-weight: 500;
+        line-height: 1.55;
+        text-align: left;
+        margin-bottom: 1rem;
+      }
+      .__section > .__body > .__sub-content > table tr {
+        width: 100%;
+      }
+      .__section > .__body > .__sub-content > table .__title {
+        display: block;
+        width: 2.688rem;
+        height: 1.063rem;
+        font-size: 0.688rem;
+        line-height: 1.55;
+        text-align: left;
+        margin-right: 1.625rem;
+        margin-bottom: 0.5rem;
+      }
+      .__section > .__body > .__sub-content > table .__description {
+        width: 100%;
+        height: 1.063rem;
+        font-size: 0.688rem;
+        font-weight: 500;
+        line-height: 1.55;
+        text-align: left;
+        padding-bottom: 0.5rem;
+      }
+      /* Main Content */
+      .__section > .__body > .__main-content {
+        margin-bottom: 2rem;
+      }
+      .__section > .__body > .__main-content > .__main-title {
+        width: 3.188rem;
+        height: 1.063rem;
+        font-size: 0.688rem;
+        font-weight: 500;
+        line-height: 1.55;
+        text-align: left;
+        margin-bottom: 1rem;
+      }
+      .__section > .__body > .__main-content > table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .__section > .__body > .__main-content > table tr {
+        width: 24.438rem;
+        height: 0;
+        border-top: 1px solid #c0c0c0;
+        border-bottom: 1px solid #c0c0c0;
+      }
+      .__section > .__body > .__main-content > table tr > .__title {
+        width: 4.5rem;
+        height: 4.047rem;
+        padding-left: 1rem;
+        border-right: 1px dashed #c0c0c0;
+      }
+      .__section
+        > .__body
+        > .__main-content
+        > table
+        tr
+        > .__title
+        > .__title-step {
+        width: 2.75rem;
+        font-size: 0.625rem;
+        /* line-height: 1.8; */
+        text-align: left;
+      }
+      .__section
+        > .__body
+        > .__main-content
+        > table
+        tr
+        > .__title
+        > .__title-info {
+        font-weight: 500;
+        font-size: 0.75rem;
+        text-align: left;
+      }
+      .__section > .__body > .__main-content > table tr > .__description {
+        font-size: 0.688rem;
+        font-weight: 500;
+        line-height: 1.55;
+        text-align: left;
+        padding-left: 1rem;
+      }
+      .__section > .__footer {
+        margin-bottom: 2rem;
+        text-align: center;
+      }
+      .__section > .__footer > .__content > .__button {
+        width: 10rem;
+        height: 1.875rem;
+        font-size: 0.75rem;
+        font-weight: 500;
+        line-height: 1.5;
+        text-align: center;
+        color: #50bfce;
+        padding: 0.375rem 1rem 0.375rem 0.938rem;
+        border-radius: 5px;
+        border: solid 1px #50bfce;
+      }
+
+      /* Layout : Divider */
+      .__divider {
+        border: solid 1px #d2d2d2;
+        margin-bottom: 2rem;
+      }
+
+      /* Layout : Footer */
+      .__footer .__content {
+        margin-bottom: 2rem;
+      }
+      .__footer > .__content > .__description-first {
+        /* - 관리자 페이지 > '대비보드' */
+        width: 24.188rem;
+        height: 2.125rem;
+        font-size: 0.688rem;
+        line-height: 1.55;
+        text-align: left;
+        color: #7d7d7d;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+      }
+      .__footer > .__content > .__description-second {
+        /* 2. 정산 완료 후 */
+        width: 21.375rem;
+        height: 2.125rem;
+        font-size: 0.688rem;
+        line-height: 1.55;
+        text-align: left;
+        color: #7d7d7d;
+      }
+      .__footer > .__content > .__comment {
+        /* 항상 더나은 서비스로 */
+        width: 100%;
+        height: 1.063rem;
+        font-size: 0.688rem;
+        font-weight: 500;
+        line-height: 1.55;
+        text-align: center;
+        color: #7d7d7d;
+      }
+      .__footer > .__content > .__website {
+        /* ad-fi-admin.danbicorp.com */
+        width: 100%;
+        height: 0.75rem;
+        font-size: 0.5rem;
+        font-weight: 300;
+        line-height: 1.5;
+        text-align: center;
+        color: #1789fb;
+        text-decoration: none;
+      }
+      .__footer > .__content > .__phone-number {
+        width: 100%;
+        height: 0.75rem;
+        margin-top: 0.125rem;
+        font-size: 0.5rem;
+        line-height: 1.5;
+        text-align: center;
+        color: #7d7d7d;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="__wrapper">
+      <div class="__header">
+        <div class="__img">
+          <img
+            src="https://danbi-public.s3.ap-northeast-2.amazonaws.com/receipt/danbiLogoForAdmin@3x.png"
+            alt="logo"
+            class="__mainImg"
+          />
+        </div>
+        <div class="__text">광고 반려 안내</div>
+      </div>
+
+      <!-- Layout : Divider -->
+      <div class="__divider"></div>
+
+      <!-- Layout : Section -->
+      <div class="__section">
+        <div class="__header">
+          <div class="_text-282828">
+            안녕하세요. <span mc:edit="user_name">{User_name}</span>님,
+          </div>
+          <div>
+            <span class="_text-808080">등록하신 광고가</span>
+            <span class="_text-e37944">반려 처리 되었습니다.</span>
+          </div>
+        </div>
+        <div class="__body">
+          <div class="__sub-content">
+            <div class="__main-title _text-282828">[광고 내용]</div>
+            <table>
+              <tr>
+                <td class="__title _text-7d7d7d">광고명</td>
+                <td class="__description _text-282828" mc:edit="ad_name">
+                  {AD_name}
+                </td>
+              </tr>
+              <tr>
+                <td class="__title _text-7d7d7d">광고 유형</td>
+                <td class="__description _text-282828" mc:edit="ad_type">
+                  {AD_type}
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="__main-content">
+            <div class="__main-title _text-e37944">[반려 사유]</div>
+            <table>
+              <tr>
+                <td class="__title _text-7d7d7d">
+                  <div class="__title-step">Step.1</div>
+                  <div class="__title-info">광고 정보</div>
+                </td>
+                <td class="__description" mc:edit="ad_info_step1">
+                  <p>잘못된 안드로이드 URL 을 입력하셨습니다.</p>
+                  <p>잘못된 IOS URL을 입력하셨습니다.</p>
+                </td>
+              </tr>
+              <tr>
+                <td class="__title _text-7d7d7d">
+                  <div class="__title-step">Step.2</div>
+                  <div class="__title-info">콘텐츠등록</div>
+                </td>
+                <td class="__description" mc:edit="ad_info_step2">
+                  <p>업로드하신 이미지의 비율이 맞지 않습니다.</p>
+                  <p>업로드하신 섬네일 이미지의 비율이 맞지 않습니다.</p>
+                </td>
+              </tr>
+              <tr>
+                <td class="__title _text-7d7d7d">
+                  <div class="__title-step">Step.3</div>
+                  <div class="__title-info">타겟설정</div>
+                </td>
+                <td class="__description" mc:edit="ad_info_step3">
+                  <p>업로드하신 이미지의 비율이 맞지 않습니다.</p>
+                  <p>업로드하신 섬네일 이미지의 비율이 맞지 않습니다.</p>
+                </td>
+              </tr>
+              <tr>
+                <td class="__title _text-7d7d7d">
+                  <div class="__title-step">Step.4</div>
+                  <div class="__title-info">일정 및 예산</div>
+                </td>
+                <td class="__description" mc:edit="ad_info_step4">
+                  <p>업로드하신 이미지의 비율이 맞지 않습니다.</p>
+                  <p>업로드하신 섬네일 이미지의 비율이 맞지 않습니다.</p>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="__footer">
+          <div class="__content">
+            <a class="__button" href="https://ad-fi-admin.danbicorp.com">
+              관리자 페이지 바로가기
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- End Section -->
+
+      <!-- Layout : Divider -->
+      <div class="__divider"></div>
+
+      <!-- Layout : Footer -->
+      <div class="__footer">
+        <div class="__content">
+          <div class="__description-first">
+            <p>
+              - 관리자 페이지 > '<span class="_text-33858f">대시보드</span>' >
+              반려광고 '<span class="_text-33858f">상세보기</span>' 에서 해당
+              반려 항복을 확인 하실 수
+            </p>
+            <p>있습니다.</p>
+          </div>
+          <div class="__description-second">
+            <p>
+              - 본 안내 메일에 대하여 추가로 궁금하신 사항이 있으시면 아래의
+              고객센터로
+            </p>
+            <p>문의해주시기 바랍니다.</p>
+          </div>
+        </div>
+        <div class="__content" style="text-align: center">
+          <div class="__comment">항상 더 나은 서비스로 보답하겠습니다.</div>
+        </div>
+        <div class="__content" style="text-align: center">
+          <div class="__website">
+            <a href="https://ad-fi-admin.danbicorp.com"
+              >ad-fi-admin.danbicorp.com</a
+            >
+          </div>
+          <div class="__phone-number">
+            ㈜단비코리아 <span style="font-weight: bold">1544-3829</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

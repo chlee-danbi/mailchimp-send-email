@@ -1,0 +1,17 @@
+{
+  "name": "mailchimp-send",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "send:permission_approved": "node src/index.permission_approved.js",
+    "send:reject_receipt": "node src/index.permission_denied.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mandrill-api": "^1.0.45",
+    "moment": "^2.29.1"
+  }
+}
