@@ -3,7 +3,7 @@ const mandrill = require("mandrill-api");
 const mandrill_client = new mandrill.Mandrill("_8uJw57XFBbrRsBVjMCAPg");
 
 const messageOption = {
-  // => 광고 승인 반려 이메일 템플릿 사용중
+  // => 결제 오류 이메일 템플릿 사용중
   template_name: "danbi-send-reject-receipt",
 
   /**
