@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "send:permission_approved": "node src/index.permission_approved.js",
-    "send:reject_receipt": "node src/index.permission_denied.js"
+    "send:permission_denied":"node src/index.permission_denied.js",
+    "send:reject_receipt": "node src/index.reject_receipt.js"
   },
   "author": "",
   "license": "ISC",
