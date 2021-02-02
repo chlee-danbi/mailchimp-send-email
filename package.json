@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "send:payment_approved":"node src/index.payment_approved.js",
+    "send:payment_denied": "node src/index.payment_denied.js",
     "send:permission_approved": "node src/index.permission_approved.js",
-    "send:permission_denied":"node src/index.permission_denied.js",
-    "send:reject_receipt": "node src/index.reject_receipt.js"
+    "send:permission_denied":"node src/index.permission_denied.js"
   },
   "author": "",
   "license": "ISC",
