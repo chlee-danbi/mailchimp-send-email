@@ -4,7 +4,7 @@ const mandrill_client = new mandrill.Mandrill("_8uJw57XFBbrRsBVjMCAPg");
 
 const messageOption = {
   // => 결제 오류 이메일 템플릿 사용중
-  template_name: "danbi-send-reject-receipt",
+  template_name: "danbi-send-payment-denied",
 
   /**
    * 인자로 필요한 데이터
