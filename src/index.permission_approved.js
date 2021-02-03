@@ -13,6 +13,7 @@ const messageOption = {
    * ad_type
    * ad_registeration_date
    * execution_period
+   * optional_title
    * cost_per_click
    * daily_budget
    */

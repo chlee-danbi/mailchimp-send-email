@@ -13,6 +13,7 @@ const messageOption = {
    * date
    * payment_card_info
    * click_count
+   * optional_title
    * execution_amount
    * vat
    * total_payment_amount
