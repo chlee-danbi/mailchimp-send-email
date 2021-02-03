@@ -4,7 +4,7 @@
 npm install
 ```
 
-## All Email Template
+## Send All Email Template
 
 ### 모든 메일 발송
 ```bash
@@ -13,7 +13,7 @@ yarn send:all
 
 ![img](img/gulp-send-all.png)
 
-## Payment Email Template
+## Send Payment Email Template
 ### 모든 결제 메일 발송
 ```bash
 send:payment:all
@@ -32,7 +32,7 @@ yarn send:payment:approved
 yarn send:payment:denied
 ```
 
-## Advertisement Email Template
+## Send Advertisement Email Template
 
 ### 모든 광고 메일 발송
 ```bash
