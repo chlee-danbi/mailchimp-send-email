@@ -64,17 +64,20 @@
       }
       /* Layout : Header */
       .__header {
-        display: flex;
-        justify-content: center;
-        align-items: center;
         margin-bottom: 2rem;
+        width: 100%;
       }
-      .__header > .__img > .__mainImg {
+      .__header > .__content {
+        margin: 0 auto;
+        display: flex;
+        width: 14.35rem;
+      }
+      .__header > .__content > .__img {
+      }
+      .__header > .__content > .__img > .__mainImg {
         width: 4.41rem;
-        height: 2.5rem;
       }
-      .__header > .__text {
-        height: 2.25rem;
+      .__header > .__content > .__text {
         font-size: 1.5rem;
         font-weight: normal;
         line-height: 1.5;
@@ -274,15 +277,18 @@
   </head>
   <body>
     <div class="__wrapper">
+      <!-- Layout : Header -->
       <div class="__header">
-        <div class="__img">
-          <img
-            src="https://danbi-public.s3.ap-northeast-2.amazonaws.com/receipt/danbiLogoForAdmin@3x.png"
-            alt="logo"
-            class="__mainImg"
-          />
+        <div class="__content">
+          <div class="__img">
+            <img
+              src="https://danbi-public.s3.ap-northeast-2.amazonaws.com/receipt/danbiLogoForAdmin@3x.png"
+              alt="logo"
+              class="__mainImg"
+            />
+          </div>
+          <div class="__text _text-808080">광고 반려 안내</div>
         </div>
-        <div class="__text _text-808080">광고 반려 안내</div>
       </div>
 
       <!-- Layout : Divider -->
