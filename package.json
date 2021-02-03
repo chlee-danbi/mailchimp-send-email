@@ -13,7 +13,7 @@
     "send:advertisement:denied": "node src/index.advertisement_denied.js",
     "send:advertisement:all": "gulp sendAdvertisementEmailTemplate"
   },
-  "author": "",
+  "author": "ChangHun Lee",
   "license": "ISC",
   "dependencies": {
     "gulp": "^4.0.2",
