@@ -17,17 +17,19 @@
 
 + [MailGun API Docs](https://documentation.mailgun.com/en/latest/api_reference.html#api-reference)
 
+### Alert
+> Code Example 에 사용된 Mandrill API KEY 는 `2021-02-04 20:00:00` 에 재발급하여 만료될 예정입니다. 
 
 ## 템플릿 종류 
 > 완성된 템플릿들의 종류 및 간단한 설명
 > 템플릿 이름에 `anchor link` 가 걸려 있습니다. 
 
-| template name                                                          | description                | state |
-| :--------------------------------------------------------------------- | :------------------------- | :---: |
-| [`danbi-send-payment-approved`](#payment-approved)                     | 결제 완료 이메일 전송      |   ✅   |
-| [`danbi-send-payment-denied`](#payment-denied)                         | 결제 오류 이메일 전송      |   ✅   |
-| [`danbi-send-advertisement-permission-approved`](#permission-approved) | 광고 승인 이메일 전송      |   ✅   |
-| [`danbi-send-advertisement-permission-denied`](#permission-denied)     | 광고 승인 반려 이메일 전송 |   ✅   |
+| template name                                               | description                | state |
+| :---------------------------------------------------------- | :------------------------- | :---: |
+| [`danbi-send-payment-approved`](#payment-approved)          | 결제 완료 이메일 전송      |   ✅   |
+| [`danbi-send-payment-denied`](#payment-denied)              | 결제 오류 이메일 전송      |   ✅   |
+| [`danbi-send-advertisement-approved`](#permission-approved) | 광고 승인 이메일 전송      |   ✅   |
+| [`danbi-send-advertisement-denied`](#permission-denied)     | 광고 승인 반려 이메일 전송 |   ✅   |
 
 
 <!-- danbi-send-advertisement-payment-approved -->
@@ -63,6 +65,7 @@
 | `payment_card_info`    | 결제 수단   | 단비 카드(DB) 1111-2222-3333-4444 |
 | `amount_of_payment`    | 결제 금액   | 68,478                            |
 | `click_count`          | 클릭수      | 125                               |
+| `optional_title`       | 동적 타이틀 | 클릭 수 ( 재생 수 )               |
 | `execution_amount`     | 클릭수      | 67,800                            |
 | `vat`                  | 부가세      | 678                               |
 | `total_payment_amount` | 총 결제금액 | 68,478                            |
@@ -90,6 +93,7 @@ const messageOption = {
    * date
    * payment_card_info
    * click_count
+   * optional_title
    * execution_amount
    * vat
    * total_payment_amount
@@ -119,6 +123,7 @@ const messageOption = {
       name: "click_count",
       content: "125",
     },
+    { name: "optional_title", content: "클릭 수" },
     { name: "execution_amount", content: "67,800" },
     { name: "vat", content: "678" },
     { name: "total_payment_amount", content: "68,478" },
@@ -168,7 +173,7 @@ const mandrill_client = new mandrill.Mandrill("_8uJw57XFBbrRsBVjMCAPg");
 
 const messageOption = {
   // => 결제 오류 이메일 템플릿 사용중
-  template_name: "danbi-send-reject-receipt",
+  template_name: "danbi-send-payment-denied",
 
   /**
    * 인자로 필요한 데이터
@@ -213,7 +218,6 @@ mandrill_client.messages.sendTemplate(
   (success) => console.log(success),
   (failure) => console.log(failure)
 );
-
 ```
 
 ## 광고 승인 템플릿 <a href="#permission-approved-email-template" id="permission-approved">#</a>
@@ -227,6 +231,7 @@ mandrill_client.messages.sendTemplate(
 | `ad_type`               | 광고 종류   | 동영상 광고                         |
 | `ad_registeration_date` | 광고 등록일 | 2021년-02월-01일                    |
 | `execution_period`      | 집행 기간   | 2021년-02월-01일 ~ 2021년-02월-14일 |
+| `optional_title`        | 동적 타이틀 | 재생당 비용 ( 클릭당 비용 )         |
 | `cost_per_click`        | 클릭당 비용 | 70 원                               |
 | `daily_budget`          | 1일 예산    | 100,000 원                          |
 
@@ -235,7 +240,7 @@ mandrill_client.messages.sendTemplate(
 <img width="748" alt="스크린샷 2021-02-03 오전 12 01 37" src="https://user-images.githubusercontent.com/76930839/106618669-0efdd680-65b3-11eb-8bca-ade6807b0ad1.png">
 
 ### Code Example
-> `danbi-send-advertisement-permission-approved` : 광고 승인 이메일 템플릿 전송 코드 예시
+> `danbi-send-advertisement-approved` : 광고 승인 이메일 템플릿 전송 코드 예시
 
 ```javascript
 const moment = require("moment");
@@ -244,7 +249,7 @@ const mandrill_client = new mandrill.Mandrill("_8uJw57XFBbrRsBVjMCAPg");
 
 const messageOption = {
   // => 광고 승인 이메일 템플릿 사용중
-  template_name: "danbi-send-advertisement-permission-approved",
+  template_name: "danbi-send-advertisement-approved",
 
   /**
    * 인자로 필요한 데이터
@@ -253,6 +258,7 @@ const messageOption = {
    * ad_type
    * ad_registeration_date
    * execution_period
+   * optional_title
    * cost_per_click
    * daily_budget
    */
@@ -276,6 +282,10 @@ const messageOption = {
     {
       name: "execution_period",
       content: "2021년-02월-01일 ~ 2021년-02월-14일",
+    },
+    {
+      name: "optional_title",
+      content: "재생당 비용",
     },
     { name: "cost_per_click", content: "70 원" },
     { name: "daily_budget", content: "100,000 원" },
@@ -305,22 +315,22 @@ mandrill_client.messages.sendTemplate(
 
 ### mc:edit | Arguments
 
-| variable        | description | test input           |
-| :-------------- | :---------- | :------------------- |
-| `user_name`     | 유저명      | ChangHun Lee         |
-| `ad_name`       | 광고명      | 파스쿠치 강남점 광고 |
-| `ad_type`       | 광고 종류   | 동영상 광고          |
-| `ad_info_step1` | 반려 정보   | 테스트               |
-| `ad_info_step2` | 반려 정보   | 테스트               |
-| `ad_info_step3` | 반려 정보   | 테스트               |
-| `ad_info_step4` | 반려 정보   | 테스트               |
+| variable        | description | test input                                                                                                                                                                                                              |
+| :-------------- | :---------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `user_name`     | 유저명      | ChangHun Lee                                                                                                                                                                                                            |
+| `ad_name`       | 광고명      | 파스쿠치 강남점 광고                                                                                                                                                                                                    |
+| `ad_type`       | 광고 종류   | 동영상 광고                                                                                                                                                                                                             |
+| `ad_info_step1` | 반려 정보   | 한줄 라인 테스트 중입니다.                                                                                                                                                                                              |
+| `ad_info_step2` | 반려 정보   | 두줄 라인 테스트 중입니다. 두줄 라인 테스트 중입니다. 두줄 라인 테스트 중입니다. 두줄 라인 테스트 중입니다.                                                                                                             |
+| `ad_info_step3` | 반려 정보   | 세줄 라인 테스트 중입니다. 세줄 라인 테스트 중입니다. 세줄 라인 테스트 중입니다. 세줄 라인 테스트 중입니다. 세줄 라인 테스트 중입니다. 세줄 라인 테스트 중입니다.                                                       |
+| `ad_info_step4` | 반려 정보   | 네줄 라인 테스트 중입니다. 네줄 라인 테스트 중입니다. 네줄 라인 테스트 중입니다. 네줄 라인 테스트 중입니다. 네줄 라인 테스트 중입니다. 네줄 라인 테스트 중입니다. 네줄 라인 테스트 중입니다. 네줄 라인 테스트 중입니다. |
 
 ### Send Email Test Result 
 
 ![스크린샷 2021-02-02 오후 1 35 39 1](https://user-images.githubusercontent.com/76930839/106553210-41c8b000-655c-11eb-8d4b-08bcbbb6bd15.png)
 
 ### Code Example
-> `danbi-send-advertisement-permission-denied` : 광고 승인 반려 이메일 템플릿 전송 코드 예시
+> `danbi-send-advertisement-denied` : 광고 승인 반려 이메일 템플릿 전송 코드 예시
 ```javascript
 const moment = require("moment");
 const mandrill = require("mandrill-api");
@@ -328,7 +338,7 @@ const mandrill_client = new mandrill.Mandrill("_8uJw57XFBbrRsBVjMCAPg");
 
 const messageOption = {
   // => 광고 승인 반려 이메일 템플릿 사용중
-  template_name: "danbi-send-advertisement-permission-denied",
+  template_name: "danbi-send-advertisement-denied",
 
   /**
    * 인자로 필요한 데이터
@@ -355,19 +365,22 @@ const messageOption = {
     },
     {
       name: "ad_info_step1",
-      content: "테스트",
+      content: "한줄 라인 테스트 중입니다.",
     },
     {
       name: "ad_info_step2",
-      content: "테스트",
+      content:
+        "두줄 라인 테스트 중입니다. 두줄 라인 테스트 중입니다. 두줄 라인 테스트 중입니다. 두줄 라인 테스트 중입니다.",
     },
     {
       name: "ad_info_step3",
-      content: "테스트",
+      content:
+        "세줄 라인 테스트 중입니다. 세줄 라인 테스트 중입니다. 세줄 라인 테스트 중입니다. 세줄 라인 테스트 중입니다. 세줄 라인 테스트 중입니다. 세줄 라인 테스트 중입니다.",
     },
     {
       name: "ad_info_step4",
-      content: "테스트",
+      content:
+        "네줄 라인 테스트 중입니다. 네줄 라인 테스트 중입니다. 네줄 라인 테스트 중입니다. 네줄 라인 테스트 중입니다. 네줄 라인 테스트 중입니다. 네줄 라인 테스트 중입니다. 네줄 라인 테스트 중입니다. 네줄 라인 테스트 중입니다.",
     },
   ],
   message: {
@@ -388,6 +401,7 @@ mandrill_client.messages.sendTemplate(
   (success) => console.log(success),
   (failure) => console.log(failure)
 );
+
 ```
 
 
