@@ -46,7 +46,7 @@ const messageOption = {
     { name: "optional_title", content: "클릭 수" },
     { name: "execution_amount", content: "67,800" },
     { name: "vat", content: "678" },
-    { name: "total_payment_amount", content: "68,480" },
+    { name: "total_payment_amount", content: "68,478" },
   ],
   message: {
     from_email: "help@danbicorp.com", // => 발신자 이메일
