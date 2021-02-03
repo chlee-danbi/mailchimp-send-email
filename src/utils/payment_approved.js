@@ -1,6 +1,10 @@
 const moment = require("moment");
 const mandrill = require("mandrill-api");
-const mandrill_client = new mandrill.Mandrill(process.env.MANDRILL_API_KEY);
+
+require("dotenv").config();
+
+const API_KEY = process.env.MANDRILL_API_KEY;
+const mandrill_client = new mandrill.Mandrill(API_KEY);
 
 const messageOption = {
   // => 결제 승인 이메일 템플릿 사용중
