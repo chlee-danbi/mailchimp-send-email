@@ -37,6 +37,10 @@ const messageOption = {
       name: "execution_period",
       content: "2021년-02월-01일 ~ 2021년-02월-14일",
     },
+    {
+      name: "optional_title",
+      content: "재생당 비용",
+    },
     { name: "cost_per_click", content: "70 원" },
     { name: "daily_budget", content: "100,000 원" },
   ],
