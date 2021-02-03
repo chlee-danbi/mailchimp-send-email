@@ -1,52 +1,35 @@
 const moment = require("moment");
 const mandrill = require("mandrill-api");
-const mandrill_client = new mandrill.Mandrill("_8uJw57XFBbrRsBVjMCAPg");
+const mandrill_client = new mandrill.Mandrill(process.env.MANDRILL_API_KEY);
 
 const messageOption = {
-  // => 결제 승인 이메일 템플릿 사용중
-  template_name: "danbi-send-payment-approved",
+  // => 결제 오류 이메일 템플릿 사용중
+  template_name: "danbi-send-payment-denied",
 
   /**
    * 인자로 필요한 데이터
-   * ad_name
-   * ad_type
-   * date
-   * payment_card_info
-   * click_count
-   * optional_title
-   * execution_amount
-   * vat
-   * total_payment_amount
+   * ad_name,
+   * ad_payment,
+   * ad_date,
+   * ad_error_code
    */
   template_content: [
     {
       name: "ad_name",
-      content: "파스쿠치 부산점 광고",
+      content: "파스쿠치 대전점 광고",
     },
     {
-      name: "ad_type",
-      content: "이미지 광고",
+      name: "ad_payment",
+      content: "단비 카드 1111-2222-3333-4444",
     },
     {
-      name: "date",
+      name: "ad_date",
       content: "2021년-02월-01일",
     },
     {
-      name: "payment_card_info",
-      content: "단비카드(DB) 1111-2222-3333-4444",
+      name: "ad_error_code",
+      content: "ABC-123",
     },
-    {
-      name: "amount_of_payment",
-      content: "68,478",
-    },
-    {
-      name: "click_count",
-      content: "125",
-    },
-    { name: "optional_title", content: "클릭 수" },
-    { name: "execution_amount", content: "67,800" },
-    { name: "vat", content: "678" },
-    { name: "total_payment_amount", content: "68,478" },
   ],
   message: {
     from_email: "help@danbicorp.com", // => 발신자 이메일

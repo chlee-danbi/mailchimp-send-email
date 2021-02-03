@@ -1,6 +1,6 @@
 const moment = require("moment");
 const mandrill = require("mandrill-api");
-const mandrill_client = new mandrill.Mandrill("_8uJw57XFBbrRsBVjMCAPg");
+const mandrill_client = new mandrill.Mandrill(process.env.MANDRILL_API_KEY);
 
 const messageOption = {
   // => 광고 승인 이메일 템플릿 사용중
