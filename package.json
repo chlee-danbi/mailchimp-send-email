@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "send:all": "gulp sendAllEmailTemplate",
-    "send:payment:approved":"node src/index.payment_approved.js",
-    "send:payment:denied":"node src/index.payment_denied.js",
+    "send:payment:approved": "node src/index.payment_approved.js",
+    "send:payment:denied": "node src/index.payment_denied.js",
     "send:payment:all": "gulp sendPaymentEmailTemplate",
     "send:advertisement:approved": "node src/index.advertisement_approved.js",
     "send:advertisement:denied": "node src/index.advertisement_denied.js",
@@ -16,6 +16,7 @@
   "author": "ChangHun Lee",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "gulp": "^4.0.2",
     "mandrill-api": "^1.0.45",
     "moment": "^2.29.1"
