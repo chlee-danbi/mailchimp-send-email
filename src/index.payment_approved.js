@@ -42,6 +42,7 @@ const messageOption = {
       name: "click_count",
       content: "125",
     },
+    { name: "optional_title", content: "클릭 수" },
     { name: "execution_amount", content: "67,800" },
     { name: "vat", content: "678" },
     { name: "total_payment_amount", content: "68,480" },
