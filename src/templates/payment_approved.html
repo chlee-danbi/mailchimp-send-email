@@ -245,36 +245,31 @@
           <div class="__box-wrapper">
             <span class="__box-container _box-large">
               <div class="__title">광고 이름</div>
-              <div class="__description" mc:edit="ad_name">ad_name</div>
+              <div class="__description" mc:edit="ad_name">{ad_name}</div>
             </span>
             <span class="__box-container _box-small" style="margin-right: 0">
               <div class="__title">광고 종류</div>
-              <div class="__description" mc:edit="ad_type">ad_type</div>
+              <div class="__description" mc:edit="ad_type">{ad_type}</div>
             </span>
           </div>
           <div class="__box-wrapper">
             <span class="__box-container _box-small" style="margin-right: 1rem">
               <div class="__title">날짜</div>
-              <div class="__description" mc:edit="date">date</div>
+              <div class="__description" mc:edit="date">{date}</div>
             </span>
             <span class="__box-container _box-regular">
               <div class="__title">결제카드</div>
               <div class="__description" mc:edit="payment_card_info">
-                단비카드(DB) 1111-2222-3333-4444
+                {payment_card_info}
               </div>
             </span>
             <span class="__box-container _box-small" style="margin-right: 0">
               <div class="__title">결제금액</div>
               <div class="__description" style="width: 100%; display: flex">
-                <span mc:edit="total_payment_amount">000,000</span>
+                <span mc:edit="total_payment_amount">{total_payment_amount}</span>
                 <div style="text-align: right; display: inline-block; width: 100%">
                   <span class="_unit">원</span>
                 </div>
-                <!-- <div class="__title">부가세</div>
-                <div class="__description">
-                  <span class="__price">100,678</span>
-                  <span class="__point">원</span>
-                </div> -->
               </div>
             </span>
           </div>
@@ -284,28 +279,28 @@
             <div class="__box-container">
               <div class="__title" mc:edit="optional_title">{optional_title}</div>
               <div class="__description">
-                <span class="__price" mc:edit="click_count">000</span>
+                <span class="__price" mc:edit="click_count">{click_count}}</span>
                 <span class="__point">회</span>
               </div>
             </div>
             <div class="__box-container">
               <div class="__title">집행 금액</div>
               <div class="__description">
-                <span class="__price" mc:edit="execution_amount">00,000</span>
+                <span class="__price" mc:edit="execution_amount">{execution_amount}}</span>
                 <span class="__point">원</span>
               </div>
             </div>
             <div class="__box-container">
               <div class="__title">부가세</div>
               <div class="__description">
-                <span class="__price" mc:edit="vat">000</span>
+                <span class="__price" mc:edit="vat">{vat}}</span>
                 <span class="__point">원</span>
               </div>
             </div>
             <div class="__box-container" style="opacity: 0.33; font-weight: bold">
               <div class="__title">총 결제금액</div>
               <div class="__description">
-                  <span class="__price" mc:edit="total_payment_amount">00,000</span>
+                  <span class="__price" mc:edit="total_payment_amount">{total_payment_amount}</span>
                 <span class="__point">원</span>
               </div>
             </div>
