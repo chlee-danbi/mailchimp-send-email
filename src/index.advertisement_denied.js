@@ -4,7 +4,7 @@ const mandrill_client = new mandrill.Mandrill("_8uJw57XFBbrRsBVjMCAPg");
 
 const messageOption = {
   // => 광고 승인 반려 이메일 템플릿 사용중
-  template_name: "danbi-send-advertisement-permission-denied",
+  template_name: "danbi-send-advertisement-denied",
 
   /**
    * 인자로 필요한 데이터
