@@ -12,7 +12,8 @@
     "send:advertisement:approved": "node src/utils/advertisement_approved.js",
     "send:advertisement:denied": "node src/utils/advertisement_denied.js",
     "send:advertisement:all": "gulp sendAdvertisementEmailTemplate",
-    "send:signin:password":"node src/utils/signin_reset_password.js"
+    "send:signin:password":"node src/utils/signin_reset_password.js",
+    "send:signup:certification":"node src/utils/signup_certification.js"
   },
   "author": "ChangHun Lee",
   "license": "ISC",
