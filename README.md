@@ -52,6 +52,13 @@ yarn send:advertisement:approved
 yarn send:advertisementdenied
 ```
 
-
-
+## Send SignIn & SignUp
+### 이메일 재설정 링크 메일 발송
+```bash
+yarn send:signin:password
+```
+### 사용자 이메일 인증 메일 발송
+```bash
+yarn send:signup:certification
+```
 
