@@ -11,7 +11,8 @@
     "send:payment:all": "gulp sendPaymentEmailTemplate",
     "send:advertisement:approved": "node src/utils/advertisement_approved.js",
     "send:advertisement:denied": "node src/utils/advertisement_denied.js",
-    "send:advertisement:all": "gulp sendAdvertisementEmailTemplate"
+    "send:advertisement:all": "gulp sendAdvertisementEmailTemplate",
+    "send:signin:password":"node src/utils/signin_reset_password.js"
   },
   "author": "ChangHun Lee",
   "license": "ISC",
@@ -20,5 +21,18 @@
     "gulp": "^4.0.2",
     "mandrill-api": "^1.0.45",
     "moment": "^2.29.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{css,scss,md}": [
+      "prettier --write"
+    ],
+    "src/**/*.{ts,tsx}": [
+      "prettier --write"
+    ]
   }
 }
