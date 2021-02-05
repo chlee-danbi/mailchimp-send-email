@@ -12,6 +12,7 @@ const messageOption = {
 
   /**
    * 인자로 필요한 데이터
+   * ad_execution_date
    * ad_name
    * ad_type
    * date
@@ -23,6 +24,10 @@ const messageOption = {
    * total_payment_amount
    */
   template_content: [
+    {
+      name: "ad_execution_date",
+      content: "2021년-01월-31일",
+    },
     {
       name: "ad_name",
       content: "파스쿠치 부산점 광고",
