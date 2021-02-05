@@ -30,7 +30,7 @@ const messageOption = {
     },
     {
       name: "ad_name",
-      content: "파스쿠치 부산점 광고",
+      content: "파스쿠치 부산점",
     },
     {
       name: "ad_type",
