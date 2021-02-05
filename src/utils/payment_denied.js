@@ -29,7 +29,7 @@ const messageOption = {
       content: "단비 카드 1111-2222-3333-4444",
     },
     {
-      name: "ad_execution_day",
+      name: "ad_execution_date",
       content: "2021년-01월-31일",
     },
     {
