@@ -16,6 +16,7 @@ const messageOption = {
    * ad_name,
    * ad_payment,
    * ad_date,
+   * ad_execution_day
    * ad_error_code
    */
   template_content: [
@@ -26,6 +27,10 @@ const messageOption = {
     {
       name: "ad_payment",
       content: "단비 카드 1111-2222-3333-4444",
+    },
+    {
+      name: "ad_execution_day",
+      content: "2021년-01월-31일",
     },
     {
       name: "ad_date",
