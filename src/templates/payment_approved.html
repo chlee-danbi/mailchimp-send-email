@@ -82,6 +82,13 @@
         width: 24.313rem;
         margin: 0 auto;
       }
+
+      /* Layout : Divider */
+      .__divider {
+        border: solid 1px #d2d2d2;
+        margin-bottom: 2rem;
+      }
+
       .__header {
         margin-bottom: 2rem;
         width: 100%;
@@ -105,6 +112,16 @@
       }
       .__section {
         width: 100%;
+      }
+      .__section > .__header {
+        display: inline-block;
+        width: 18.438rem;
+        height: 3rem;
+        font-size: 1rem;
+        font-weight: normal;
+        line-height: 1.5;
+        text-align: left;
+        margin-bottom: 1rem;
       }
       .__section > .__sub-content {
         margin-bottom: 2rem;
@@ -256,7 +273,24 @@
           <div class="__text _text-808080">Receipt</div>
         </div>
       </div>
+
       <div class="__section">
+        <div class="__header">
+          <div class="_text-7d7d7d">
+            <span class="_text-50bfce" mc:edit="ad_execution_date"
+              >{ad_execution_date}</span
+            >
+            집행 된
+          </div>
+          <div class="_text-7d7d7d">
+            <span class="_text-50bfce" mc:edit="ad_name">{ad_name}</span>광고
+            결제 내역입니다.
+          </div>
+        </div>
+
+        <!-- Layout : Divider -->
+        <div class="__divider"></div>
+
         <div class="__sub-content">
           <div class="__box-wrapper">
             <span class="__box-container _box-large">
@@ -335,6 +369,9 @@
           </div>
         </div>
       </div>
+
+      <!-- Layout : Divider -->
+      <div class="__divider"></div>
 
       <!-- Layout : Footer -->
       <div class="__footer">
