@@ -7,9 +7,6 @@ const mail = require("node-mailjet");
 
 require("dotenv").config();
 
-const PUBLIC_API_KEY = process.env.MAILJET_API_KEY;
-const PRIVATE_API_KEY = process.env.MAILJET_SECRET_KEY;
-
 const mailjet = mail.connect(PUBLIC_API_KEY || "", PRIVATE_API_KEY || "");
 
 const request = mailjet.post("send", { version: "v3.1" }).request({
