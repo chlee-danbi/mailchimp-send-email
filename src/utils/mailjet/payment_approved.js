@@ -3,13 +3,16 @@
  * This call sends a message to the given recipient with vars and custom vars.
  *
  */
-const mail = require("node-mailjet");
+const mailjet = require("node-mailjet");
 
 require("dotenv").config();
 
-const mailjet = mail.connect(PUBLIC_API_KEY || "", PRIVATE_API_KEY || "");
+const mailjet_client = mailjet.connect(
+  PUBLIC_API_KEY || "",
+  PRIVATE_API_KEY || ""
+);
 
-const request = mailjet.post("send", { version: "v3.1" }).request({
+const request = mailjet_client.post("send", { version: "v3.1" }).request({
   Messages: [
     {
       From: {
