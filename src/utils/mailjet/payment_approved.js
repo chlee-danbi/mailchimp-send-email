@@ -8,8 +8,8 @@ const mailjet = require("node-mailjet");
 require("dotenv").config();
 
 const mailjet_client = mailjet.connect(
-  PUBLIC_API_KEY || "",
-  PRIVATE_API_KEY || ""
+  process.env.PUBLIC_API_KEY || "",
+  process.env.PRIVATE_API_KEY || ""
 );
 
 const request = mailjet_client.post("send", { version: "v3.1" }).request({
